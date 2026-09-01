@@ -1,0 +1,11 @@
+.title KiCad schematic
+.include "E:/Projects/OpenDAQ-MixedSignal-AFE/simulations_spice/CSP_FrontEnd_Simulation/opa656.sub"
+v2 __v2
+Cd1 Net-_X1-IN_MINUS_ GND 70p
+v3 __v3
+R3 GND /vout 100
+Cf1 Net-_X1-IN_MINUS_ /vout 1p
+R1 /vout Net-_X1-IN_MINUS_ 50Meg
+X1 GND Net-_X1-IN_MINUS_ Net-_X1-VCC_ Net-_X1-VEE_ /vout OPA656
+I1 GND Net-_X1-IN_MINUS_ EXP( 0 100u 10n 1n 11n 10n ) 
+.end

@@ -1,0 +1,22 @@
+* Subcircuit OPA656 (230MHz FET-Input)
+.subckt OPA656 IN_PLUS IN_MINUS VCC VEE OUT
+
+* 1. High Impedance JFET Input (100 Megohm)
+r1 IN_PLUS IN_MINUS 100meg
+
+* 2. 230MHz Gain/Filter Stage 
+* (Turns voltage difference into current, pushes into RC filter)
+gm1 gnd RC_Node IN_PLUS IN_MINUS 1
+r2 RC_Node gnd 100k
+c1 RC_Node gnd 690pf
+
+* 3. Output Buffer Stage
+* (Reads filter voltage, pushes to output through 50 ohm impedance)
+e1 e1_out gnd RC_Node gnd 1
+r5 e1_out OUT 50
+
+* 4. Dummy Power Pins (Prevents floating errors)
+r3 VCC gnd 1g
+r4 VEE gnd 1g
+
+.ends OPA656
