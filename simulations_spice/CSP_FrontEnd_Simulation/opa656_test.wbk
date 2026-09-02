@@ -22,8 +22,8 @@
       "traces": [
         {
           "color": "rgb(228, 26, 28)",
-          "signal": "V(/vout)",
-          "trace_type": 257
+          "signal": "V(/Shaped_Out)",
+          "trace_type": 1
         }
       ]
     }
