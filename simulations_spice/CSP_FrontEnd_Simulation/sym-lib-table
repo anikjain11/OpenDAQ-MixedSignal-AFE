@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "OpenDAQ_Custom")(type "KiCad")(uri "${KIPRJMOD}/OpenDAQ_Custom.kicad_sym")(options "")(descr ""))
+)

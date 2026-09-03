@@ -6,9 +6,7 @@
       "commands": [
         ".tran 10n 100u 0",
         ".kicad adjustpaths",
-        ".save all",
-        ".probe alli",
-        ".probe allp"
+        ".save all"
       ],
       "dottedSecondary": true,
       "margins": {
@@ -21,9 +19,24 @@
       "showGrid": true,
       "traces": [
         {
+          "color": "rgb(77, 175, 74)",
+          "signal": "V(/BIT_0)",
+          "trace_type": 257
+        },
+        {
+          "color": "rgb(55, 126, 184)",
+          "signal": "V(/BIT_1)",
+          "trace_type": 257
+        },
+        {
           "color": "rgb(228, 26, 28)",
+          "signal": "V(/BIT_2)",
+          "trace_type": 257
+        },
+        {
+          "color": "rgb(152, 78, 163)",
           "signal": "V(/Shaped_Out)",
-          "trace_type": 1
+          "trace_type": 257
         }
       ]
     }

@@ -1,0 +1,89 @@
+* Subcircuit 3bit_flash_adc (Behavioral Mixed-Signal Model)
+.subckt 3bit_flash_adc net-_u1-pad1_ net-_r1-pad2_ net-_r8-pad1_ net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ 
+.title kicad schematic
+* u17 net-_u10-pad1_ net-_u14-pad3_ /bit1_dig d_or
+* u12 /bit2_dig net-_u12-pad2_ d_inverter
+* u15 net-_u12-pad2_ net-_u15-pad2_ net-_u15-pad3_ d_and
+* u14 net-_u12-pad2_ net-_u11-pad1_ net-_u14-pad3_ d_and
+* u13 net-_u10-pad2_ net-_u13-pad2_ net-_u13-pad3_ d_and
+* u9 /bit2_dig net-_u1-pad4_ dac_bridge_1
+* u10 net-_u10-pad1_ net-_u10-pad2_ d_inverter
+* u16 net-_u11-pad2_ net-_u16-pad2_ net-_u16-pad3_ d_and
+* u19 /bit1_dig net-_u1-pad5_ dac_bridge_1
+* u22 /bit0_dig net-_u1-pad6_ dac_bridge_1
+* u21 net-_u18-pad3_ net-_u20-pad3_ /bit0_dig d_or
+* u20 net-_u15-pad3_ net-_u16-pad3_ net-_u20-pad3_ d_or
+* u18 net-_u18-pad1_ net-_u13-pad3_ net-_u18-pad3_ d_or
+* u11 net-_u11-pad1_ net-_u11-pad2_ d_inverter
+
+* --- IDEAL BEHAVIORAL COMPARATORS ---
+B7 /c1 0 V={5 * sgn(V(net-_u1-pad1_) - V(/v1))}
+B2 /c2 0 V={5 * sgn(V(net-_u1-pad1_) - V(/v2))}
+B1 /c5 0 V={5 * sgn(V(net-_u1-pad1_) - V(/v5))}
+B5 /c4 0 V={5 * sgn(V(net-_u1-pad1_) - V(/v4))}
+B6 /c3 0 V={5 * sgn(V(net-_u1-pad1_) - V(/v3))}
+B3 /c7 0 V={5 * sgn(V(net-_u1-pad1_) - V(/v7))}
+B4 /c6 0 V={5 * sgn(V(net-_u1-pad1_) - V(/v6))}
+* ------------------------------------
+
+* u8 /c1 net-_u16-pad2_ adc_bridge_1
+* u4 /c5 net-_u13-pad2_ adc_bridge_1
+* u7 /c2 net-_u11-pad1_ adc_bridge_1
+* u6 /c3 net-_u15-pad2_ adc_bridge_1
+* u5 /c4 /bit2_dig adc_bridge_1
+* u3 /c6 net-_u10-pad1_ adc_bridge_1
+* u2 /c7 net-_u18-pad1_ adc_bridge_1
+
+r1 /v7 net-_r1-pad2_ 1k
+r4 /v4 /v5 1k
+r3 /v5 /v6 1k
+r2 /v6 /v7 1k
+r6 /v2 /v3 1k
+r7 /v1 /v2 1k
+r5 /v3 /v4 1k
+r8 net-_r8-pad1_ /v1 1k
+
+a1 [net-_u10-pad1_ net-_u14-pad3_ ] /bit1_dig u17
+a2 /bit2_dig net-_u12-pad2_ u12
+a3 [net-_u12-pad2_ net-_u15-pad2_ ] net-_u15-pad3_ u15
+a4 [net-_u12-pad2_ net-_u11-pad1_ ] net-_u14-pad3_ u14
+a5 [net-_u10-pad2_ net-_u13-pad2_ ] net-_u13-pad3_ u13
+a6 [/bit2_dig ] [net-_u1-pad4_ ] u9
+a7 net-_u10-pad1_ net-_u10-pad2_ u10
+a8 [net-_u11-pad2_ net-_u16-pad2_ ] net-_u16-pad3_ u16
+a9 [/bit1_dig ] [net-_u1-pad5_ ] u19
+a10 [/bit0_dig ] [net-_u1-pad6_ ] u22
+a11 [net-_u18-pad3_ net-_u20-pad3_ ] /bit0_dig u21
+a12 [net-_u15-pad3_ net-_u16-pad3_ ] net-_u20-pad3_ u20
+a13 [net-_u18-pad1_ net-_u13-pad3_ ] net-_u18-pad3_ u18
+a14 net-_u11-pad1_ net-_u11-pad2_ u11
+a15 [/c1 ] [net-_u16-pad2_ ] u8
+a16 [/c5 ] [net-_u13-pad2_ ] u4
+a17 [/c2 ] [net-_u11-pad1_ ] u7
+a18 [/c3 ] [net-_u15-pad2_ ] u6
+a19 [/c4 ] [/bit2_dig ] u5
+a20 [/c6 ] [net-_u10-pad1_ ] u3
+a21 [/c7 ] [net-_u18-pad1_ ] u2
+
+.model u17 d_or(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u12 d_inverter(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u15 d_and(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u14 d_and(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u13 d_and(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u9 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+.model u10 d_inverter(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u16 d_and(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u19 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+.model u22 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+.model u21 d_or(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u20 d_or(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u18 d_or(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u11 d_inverter(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 )
+.model u8 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+.model u4 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+.model u7 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+.model u6 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+.model u5 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+.model u3 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+.model u2 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+.ends 3bit_flash_adc
