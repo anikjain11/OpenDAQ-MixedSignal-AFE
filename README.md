@@ -62,9 +62,9 @@ The Charge-Sensitive Preamplifier (CSP) converts input charge ($Q_{in}$) into a 
 * **Detector Capacitance:** 70 pF (PIN Photodiode emulation)
 * **PZ Cancellation Resistor:** $R_{pz} = 500\text{ k}\Omega$ 
 
-![Transient Response](results/01_Simulations/adc_publication_plot.png)
+![Transient Response](Results/01_Simulations/adc_publication_plot.png)
 > *Above: Ngspice transient analysis displaying the shaper compressing the 50µs tail into a clean ~720mV semi-Gaussian peak, triggering the 3-bit Flash ADC logic (111).*
-> *Note: For a deep dive into the SPICE slew-rate limitations and behavioral modeling of the ADC, [read the Simulation Notes here](simulations_spice/CSP_FrontEnd_Simulation/Simulation_README.md).*
+> *Note: For a deep dive into the SPICE slew-rate limitations and behavioral modeling of the ADC, [read the Simulation Notes here](simulations_spice/Simulation_README.md).*
 
 ---
 
@@ -78,8 +78,8 @@ To translate the physics into silicon, the AFE was routed onto a strictly constr
 
 ### Board Renders & Routing
 <p align="center">
-  <img src="results/03_PCB_layout/Screenshot 2026-09-20 165811.png" width="45%" alt="3D PCB Render"/>
-  <img src="results/03_PCB_layout/Screenshot 2026-09-20 165850.png" width="45%" alt="2D Routing"/>
+  <img src="Results/03_PCB_layout/Screenshot 2026-09-20 165811.png" width="45%" alt="3D PCB Render"/>
+  <img src="Results/03_PCB_layout/Screenshot 2026-09-20 165850.png" width="45%" alt="2D Routing"/>
 </p>
 
 ---
