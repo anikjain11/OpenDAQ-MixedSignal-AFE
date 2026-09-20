@@ -34,5 +34,5 @@ Transient analysis confirms the theoretical derivations. The initial charge inje
 * **Data Extraction:** KiCad's native plotter struggled to auto-scale instantaneous 0V to 5V logic transitions. Raw transient data was exported via CSV and processed through a custom Python script (Pandas/Matplotlib) to generate a stacked, publication-ready visualization.
 
 ### Final Transient Response
-![ADC Transient Response](adc_publication_plot.png)
+![ADC Transient Response](CSP_FrontEnd_Simulation/adc_publication_plot.png)
 *(Image: OpenDAQ AFE digitizing a 1 pC equivalent simulated particle hit)*
