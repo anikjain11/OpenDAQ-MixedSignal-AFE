@@ -78,8 +78,8 @@ To translate the physics into silicon, the AFE was routed onto a strictly constr
 
 ### Board Renders & Routing
 <p align="center">
-  <img src="Results/03_PCB_layout/Screenshot 2026-09-20 165811.png" width="45%" alt="3D PCB Render"/>
-  <img src="Results/03_PCB_layout/Screenshot 2026-09-20 165850.png" width="45%" alt="2D Routing"/>
+  <img src="Results/03_PCB_layout/3-D_Layout.png" width="45%" alt="3D PCB Render"/>
+  <img src="Results/03_PCB_layout/2-D_Layout.png" width="45%" alt="2D Routing"/>
 </p>
 
 ---
